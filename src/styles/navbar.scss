@@ -1,0 +1,30 @@
+nav {
+  img {
+    width: 100px;
+    height: 100px;
+    float: left;
+    cursor: pointer;
+  }
+
+  ul {
+    list-style-type: none;
+    float: right;
+    margin-top: 25px;
+    margin-right: 20px;
+
+    li {
+      display: inline-block;
+      margin: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      color: #005FC9;
+    }
+
+    li#button {
+      background-color: #035EC5;
+      color: white;
+      padding: 10px 10px;
+      border-radius: 19px;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+html, body {
+  margin: 0;
+  font-family: proxima-nova, sans-serif;
+  font-style: normal;
+  font-weight: 100;
+}
+
+#loading {
+  text-align: center;
+  padding-top: 200px;
+}
+
+@import './navbar.scss';
+@import './stations.scss';
+@import './footer.scss';

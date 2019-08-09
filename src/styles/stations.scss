@@ -1,0 +1,58 @@
+section#stations {
+  padding-top: 100px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  h1 {
+    text-align: center;
+    font-size: 40px;
+    color: #0B163F;
+  }
+
+  .stations {
+    overflow-y: scroll;
+    height: 70vh;
+    .station-info {
+      background-color: #035EC5;
+      margin: 0 auto;
+      margin-top: 10px;
+      color: white;
+      font-size: 20px;
+      padding: 10px 10px;
+      max-width: 333px;
+      border-radius: 22px;
+      display: grid;
+
+      grid-template-areas: 
+      "station bikes docs";
+      grid-template-columns: 7fr 3fr 2fr;
+      grid-gap: 10px;
+
+      .bikes {
+        display: block;
+        margin-top: 1em;
+        i {
+          margin-left: 3px;
+        }
+        .number {
+          float: right;
+          margin-right: 20px;
+        }      
+      }
+
+      .docs {
+        display: block;
+        margin-top: 1em;
+        .number {
+          float: right;
+        }
+      }
+    }
+
+    .station-info#top {
+      border: 1px solid #035EC5;
+      color: #035EC5;
+      background-color: white;
+    }
+  }
+}
