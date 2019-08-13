@@ -7,8 +7,6 @@ This application shows Oslo Bysykkel stations and their availability.
 
 ## Installation and Usage
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
-
 ```bash
 git clone https://github.com/wickdeeb/oslo-bysykkel-status.git
 cd oslo-bysykkel-status
