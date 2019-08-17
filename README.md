@@ -14,5 +14,11 @@ npm install
 npm start
 ```
 
+## Testing
+Testing done with Jest. Run the tests with the following command:
+```bash
+npm test
+```
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
