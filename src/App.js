@@ -1,8 +1,11 @@
 import React from 'react';
 import './styles/main.scss';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Stations from './components/Stations';
 import Footer from './components/Footer';
+import Landing from './components/Landing';
+import Bikemap from './components/Bikemap';
 
 // API urls
 const infoAPI = 'https://gbfs.urbansharing.com/oslobysykkel.no/station_information.json';
@@ -43,9 +46,11 @@ class App extends React.Component {
     } else if (!isLoaded) {
       return(
         <div className="app"> 
-          <Navbar />
-          <h1 id="loading">Laster inn...</h1>
-          <Footer />
+          <Router>
+            <Navbar />
+            <h1 id="loading">Laster inn...</h1>
+            <Footer />
+          </Router>
         </div>
       );
     } else {
@@ -60,9 +65,17 @@ class App extends React.Component {
 
       return(
         <div className="App">
-          <Navbar />
-          <Stations stations={stations} />
-          <Footer />
+          <Router>
+              <Navbar />
+              <Route exact path="/" component={Landing} />
+              <Route exact path="/stasjoner" render={(props) => (
+                <Stations {...props} stations={stations} />
+              )}/>
+              <Route exact path="/kart" render={(props) => (
+                <Bikemap {...props} stations={stations} />
+              )}/>
+              <Footer />
+          </Router>
         </div>
       );
     }
