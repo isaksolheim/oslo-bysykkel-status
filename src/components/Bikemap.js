@@ -1,5 +1,6 @@
 import React from 'react';
 import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
+import { key } from './.key.js';
 
 class Bikemap extends React.Component {
   constructor(props) {
@@ -79,5 +80,5 @@ class Bikemap extends React.Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyCAeT2hCm_hFWi-NM6aRv9v5KyZxiNktOM'
+  apiKey: key 
 })(Bikemap);
