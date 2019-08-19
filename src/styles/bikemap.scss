@@ -6,4 +6,19 @@ section#bikemap {
     font-size: 40px;
     color: #0B163F;
   }
+
+  .infobox {
+    width: 200px;
+    text-align: center;
+    .available {
+      font-size: 15px;
+      font-weight: 500;
+      width: 50%;
+      display: inline-block;
+      p {
+        margin: 10px;
+        font-size: 16px;
+      }
+    }
+  }
 }
