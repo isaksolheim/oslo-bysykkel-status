@@ -13,6 +13,12 @@ class Bikemap extends React.Component {
     }
   }
 
+  componentDidMount() {
+    // Resizing the google-maps-react container
+    let content = document.getElementById('bikemap');
+    content.children[1].setAttribute('style', 'height: 70%; position: absolute; width: 100%');
+  }
+
   handleMarkerClick = (props, marker) => {
     this.setState({ 
       showingInfoWindow: true,
@@ -31,19 +37,23 @@ class Bikemap extends React.Component {
   }
 
   render() {
+    let stations = this.props.stations;
+    const {google} = this.props;
     const mapStyles = {
       width: '100%',
-      height: '60%',
-    }
+      height: '100%',
+      maxWidth: '1000px',
+      margin: '0 auto',
+    };
 
-    let stations = this.props.stations;
+
     return(
       <section id="bikemap">
         <h1>Kart</h1>
         <Map
           id="yeet"
           google={this.props.google}
-          zoom={11}
+          zoom={12}
           style={mapStyles}
           initialCenter={{ lat: stations[0].lat, lng: stations[0].lon }}
         >
@@ -54,7 +64,12 @@ class Bikemap extends React.Component {
                 key={station.station_id} 
                 position={{ lat: station.lat, lng: station.lon }} 
                 title={station.station_name}
-                station={station} />
+                icon={{
+                  url: station.num_bikes_available ? './images/marker.png' : './images/marker-full.png',
+                  anchor: new google.maps.Point(10,10),
+                  scaledSize: new google.maps.Size(23,23)
+                }}
+                station={station}/>
             );
           })}
           <InfoWindow
