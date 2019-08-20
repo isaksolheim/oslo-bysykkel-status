@@ -9,6 +9,7 @@ section#bikemap {
   }
 
   .infobox {
+    overflow: hidden;
     width: 200px;
     text-align: center;
     .available {

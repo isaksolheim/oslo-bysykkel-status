@@ -16,7 +16,7 @@ class Bikemap extends React.Component {
   componentDidMount() {
     // Resizing the google-maps-react container
     let content = document.getElementById('bikemap');
-    content.children[1].setAttribute('style', 'height: 70%; position: absolute; width: 100%');
+    content.children[1].setAttribute('style', 'height: calc(70% - 50px); position: absolute; width: 100%');
   }
 
   handleMarkerClick = (props, marker) => {
@@ -51,7 +51,6 @@ class Bikemap extends React.Component {
       <section id="bikemap">
         <h1>Kart</h1>
         <Map
-          id="yeet"
           google={this.props.google}
           zoom={12}
           style={mapStyles}
