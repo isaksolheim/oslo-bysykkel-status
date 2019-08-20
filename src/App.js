@@ -48,7 +48,7 @@ class App extends React.Component {
         <div className="app"> 
           <Router>
             <Navbar />
-            <h1 id="loading">Laster inn...</h1>
+              <h1 id="loading">Laster inn...</h1>
             <Footer />
           </Router>
         </div>

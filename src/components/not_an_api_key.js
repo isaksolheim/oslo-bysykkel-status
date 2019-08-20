@@ -1,0 +1,1 @@
+export var key = 'AIzaSyCAeT2hCm_hFWi-NM6aRv9v5KyZxiNktOM';

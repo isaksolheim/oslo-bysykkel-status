@@ -1,6 +1,6 @@
 import React from 'react';
 import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
-import { key } from './.key.js';
+import { key } from './not_an_api_key';
 
 class Bikemap extends React.Component {
   constructor(props) {
@@ -10,7 +10,7 @@ class Bikemap extends React.Component {
       showingInfoWindow: true,
       activeMarker: {},
       selectedStation: {}
-    }
+    };
   }
 
   componentDidMount() {
@@ -27,25 +27,24 @@ class Bikemap extends React.Component {
     });
   }
 
-  onClose = props => {
+  onClose = () => {
     if (this.state.showingInfoWindow) {
       this.setState({
         showingInfoWindow: false,
         activeMarker: null,
       });
-    }
+    };
   }
 
   render() {
     let stations = this.props.stations;
-    const {google} = this.props;
+    const { google } = this.props;
     const mapStyles = {
       width: '100%',
       height: '100%',
       maxWidth: '1000px',
       margin: '0 auto',
     };
-
 
     return(
       <section id="bikemap">
@@ -54,21 +53,21 @@ class Bikemap extends React.Component {
           google={this.props.google}
           zoom={12}
           style={mapStyles}
-          initialCenter={{ lat: stations[0].lat, lng: stations[0].lon }}
-        >
+          initialCenter={{ lat: stations[0].lat, lng: stations[0].lon }}>
           {stations.map(station => {
             return(
               <Marker 
-                onClick={this.handleMarkerClick}
                 key={station.station_id} 
+                onClick={this.handleMarkerClick}
                 position={{ lat: station.lat, lng: station.lon }} 
                 title={station.station_name}
+                station={station}
                 icon={{
                   url: station.num_bikes_available ? './images/marker.png' : './images/marker-full.png',
                   anchor: new google.maps.Point(10,10),
                   scaledSize: new google.maps.Size(23,23)
-                }}
-                station={station}/>
+                }} 
+              />
             );
           })}
           <InfoWindow
